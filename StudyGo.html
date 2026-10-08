@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyGo</title>
+    <link rel="stylesheet" href="StudyGo.css">
+    <link rel="manifest" href="StudyGo.json">
+<meta name="theme-color" content="#635bdb">
+</head>
+<body>
+   <header>
+        <h1> StudyGo</h1>
+        <p>
+            Organiza. Empieza. Entrega.
+        </p>
+    </header>
+    <main>
+        <section class="tarjeta">
+            <h2> Nuevo trabajo</h2>
+            <label>
+                ¿Qué tienes que hacer?
+            </label>
+            <input
+                type="text"
+                id="nombreTrabajo"
+                placeholder="Ej: Exposición de biología"
+            >
+        
+     <label>Grado</label>
+<select id="grado" onchange="cambiarMaterias()">
+    <option value="">Selecciona tu grado</option>
+    <option value="6">6°</option>
+    <option value="7">7°</option>
+    <option value="8">8°</option>
+    <option value="9">9°</option>
+    <option value="10">10°</option>
+    <option value="11">11°</option>
+</select>
+<label>Materia</label>
+<select id="materia">
+    <option value="">Primero selecciona tu grado</option>
+</select>
+            <label>
+                Fecha de entrega
+            </label>
+            <input
+                type="date"
+                id="fecha"
+            >
+            <button onclick="agregarTrabajo()">
+                + Agregar trabajo
+            </button>
+        </section>
+    <section class="tarjeta">
+            <h2>
+                 Alertas
+            </h2>
+            <div id="alertas">
+                <p>
+                    No tienes alertas todavía.
+                </p>
+            </div>
+        </section>
+        <section class="tarjeta">
+            <h2>
+             Mis trabajos
+            </h2>
+            <div id="listaTrabajos">
+                <p class="vacio">
+                    Todavía no tienes trabajos registrados.
+                </p>
+            </div>
+        </section>
+        <section class="tarjeta temporizador">
+            <h2>
+ No lo dejo para después
+            </h2>
+            <p>
+                Trabaja durante 5 minutos
+                en una sola tarea.
+            </p>
+            <div id="tiempo">
+                05:00
+            </div>
+            <button onclick="iniciarTemporizador()">
+                ▶ Empezar
+            </button>
+            <button
+                class="secundario"
+                onclick="reiniciarTemporizador()"
+            >
+                ↻ Reiniciar
+            </button>
+            <p id="mensajeTemporizador"></p>
+        </section>
+    </main>
+    <div
+        id="tutorial"
+        class="tutorial"
+    >
+       <div class="tutorialCaja">
+            <div class="tutorialNumero">
+                <span id="numeroPaso">
+                    1
+                </span>
+            </div>
+            <h2 id="tutorialTitulo">
+ ¡Bienvenido a StudyGo!
+            </h2>
+            <p id="tutorialTexto">
+                Aquí podrás organizar tus trabajos,
+                controlar tus entregas y evitar dejar
+                todo para última hora.
+            </p>
+            <div class="puntos">
+                <span id="punto1"></span>
+                <span id="punto2"></span>
+                <span id="punto3"></span>
+                <span id="punto4"></span>
+                <span id="punto5"></span>
+                <span id="punto6"></span>
+            </div>
+            <div class="tutorialBotones">
+                <button
+                    id="tutorialAnterior"
+                    class="secundario"
+                    onclick="tutorialAnterior()"
+                >
+                    ← Atrás
+                </button>
+                <button
+                    id="tutorialSiguiente"
+                    onclick="tutorialSiguiente()"
+                >
+                    Siguiente →
+                </button>
+            </div>
+            <button
+                class="saltar"
+                onclick="cerrarTutorial()"
+            >
+                Saltar tutorial
+            </button>
+        </div>
+    </div>
+    <script src="StudyGo.js"></script>
+    <script>
+
+if ("serviceWorker" in navigator) {
+
+    navigator.serviceWorker.register("SG.js");
+
+}
+
+</script>
+</body>
+</html>
